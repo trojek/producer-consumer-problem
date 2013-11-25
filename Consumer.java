@@ -10,13 +10,16 @@ public class Consumer extends Thread {
 		stop = s;
 		consumerNumber = cn;
 	}
-	
+
 	public void run() {
 		for (; !stop;) {
 			try {
-				if (buf.get() >= 10) {
-					int result = buf.get();
-					if (result >= 0) {
+				int result = buf.get();
+				if (result >= 0) {
+					if ((result <= 10) && consumerNumber == 1) {
+						System.out.println("Consumer " + consumerNumber
+								+ " get:" + result);
+					} else if ((result >= 10) && consumerNumber == 2) {
 						System.out.println("Consumer " + consumerNumber
 								+ " get:" + result);
 					}

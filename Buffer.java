@@ -1,6 +1,6 @@
 public class Buffer {
 
-	static final int BUF_SIZE = 8;
+	static final int BUF_SIZE = 2;
 	int[] buf = new int[BUF_SIZE];
 	int count = 0;
 
@@ -9,7 +9,6 @@ public class Buffer {
 		if (count == BUF_SIZE)
 			return false;
 		buf[count] = element;
-		// [wywłaszczenie??]
 		count++;
 		return true;
 	}
@@ -25,7 +24,6 @@ public class Buffer {
 
 		for (int i = 0; i < count - 1; i++)
 			buf[i] = buf[i + 1];
-		// [wywłaszczenie??]
 		count--;
 
 		return element;

@@ -11,12 +11,13 @@ public class Main {
 		c1.buf = buf;
 		c1.start();
 		
-		Consumer c2 = new Consumer(buf, 900, false, 2);
+		Consumer c2 = new Consumer(buf, 250, false, 2);
 		c2.buf = buf;
 		c2.start();
 
 		try {
-			Thread.currentThread().sleep(10 * 1000);
+			// trwa tak długo
+			Thread.currentThread().sleep(5 * 1000);
 			p.stop = true;
 			c1.stop = true;
 			c2.stop = true;
