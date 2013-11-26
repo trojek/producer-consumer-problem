@@ -33,8 +33,9 @@ public class Consumer extends Thread {
 			}
 		}
 		
-		if (consumerNumber == 1) System.out.println("C2: " + sumOfArrayList(c1)/c1.size());
-		if (consumerNumber == 2) System.out.println("C2: " + sumOfArrayList(c2)/c2.size());
+		double ac1=0,ac2=0;
+		if (consumerNumber == 1) ac1 = sumOfArrayList(c1)/c1.size();
+		if (consumerNumber == 2) System.out.println("wynik: " + (sumOfArrayList(c2)/c2.size()- ac1));
 		
 	}
 
