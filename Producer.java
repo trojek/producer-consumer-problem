@@ -4,12 +4,15 @@ public class Producer extends Thread {
 
 	Buffer buf;
 	boolean stop = false;
-
-	int[] tablica = { 1, 13, 32, 3, 23, 6, 10 ,10, 10, 7, 12, 17, 18, 8, 3, 11, 4 };
+	int[] tablica = new int[1000];
+	
+	public Producer(int[] t) {
+		tablica = t;
+		
+	}
 
 	Random r = new Random();
 	int sleepTime = r.nextInt(111 - 90) + 90;
-
 	public void run() {
 		for (int i = 0; i < tablica.length; i++) {
 			try {

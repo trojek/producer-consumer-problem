@@ -1,6 +1,11 @@
 public class Buffer {
 
-	static final int BUF_SIZE = 2;
+	int BUF_SIZE = 10;
+	
+	public Buffer(int size) {
+		BUF_SIZE = size;
+	}
+	
 	int[] buf = new int[BUF_SIZE];
 	int count = 0;
 
@@ -16,7 +21,6 @@ public class Buffer {
 	int get()
 	{
 		if (count == 0) {
-			// co wtedy?
 			return -1;
 		}
 		
