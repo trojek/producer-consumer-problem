@@ -3,6 +3,7 @@ import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -20,7 +21,7 @@ public class Main {
 		}
 
 		int[] numbers = toIntArray(listNumbers);
-		
+
 		// Create buffer object which keeps numbers from producer
 		Buffer buf = new Buffer(Integer.parseInt(args[1]));
 
@@ -28,11 +29,11 @@ public class Main {
 		p.buf = buf;
 		p.start();
 
-		Consumer c1 = new Consumer(buf, 300, false, 1);
+		Consumer c1 = new Consumer(buf, normalDistribution(10, 100), false, 1);
 		c1.buf = buf;
 		c1.start();
 
-		Consumer c2 = new Consumer(buf, 250, false, 2);
+		Consumer c2 = new Consumer(buf, normalDistribution(200, 10), false, 2);
 		c2.buf = buf;
 		c2.start();
 
@@ -53,6 +54,17 @@ public class Main {
 			intArray[i] = integerList.get(i);
 		}
 		return intArray;
+	}
+
+	static int normalDistribution(int m, int sigma) {
+
+		Random r = new Random();
+		double g = r.nextGaussian() * sigma + m;
+		int prodTime = (int) Math.round(g);
+		
+		if (prodTime < 0) prodTime = prodTime * -1;
+		
+		return prodTime;
 	}
 
 }

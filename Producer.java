@@ -4,7 +4,7 @@ public class Producer extends Thread {
 
 	Buffer buf;
 	boolean stop = false;
-	int[] tablica = new int[1000];
+	int[] tablica;
 	
 	public Producer(int[] t) {
 		tablica = t;
