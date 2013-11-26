@@ -2,12 +2,10 @@ public class Consumer extends Thread {
 
 	Buffer buf;
 	int sleepTime, consumerNumber;
-	boolean stop;
+	boolean stop = false;
 
-	public Consumer(Buffer b, int st, boolean s, int cn) {
-		buf = b;
+	public Consumer(int st, int cn) {
 		sleepTime = st;
-		stop = s;
 		consumerNumber = cn;
 	}
 

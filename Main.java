@@ -25,15 +25,15 @@ public class Main {
 		// Create buffer object which keeps numbers from producer
 		Buffer buf = new Buffer(Integer.parseInt(args[1]));
 
-		Producer p = new Producer(numbers);
+		Producer p = new Producer(numbers, normalDistribution(100, 10));
 		p.buf = buf;
 		p.start();
 
-		Consumer c1 = new Consumer(buf, normalDistribution(10, 100), false, 1);
+		Consumer c1 = new Consumer(normalDistribution(150, 200), 1);
 		c1.buf = buf;
 		c1.start();
 
-		Consumer c2 = new Consumer(buf, normalDistribution(200, 10), false, 2);
+		Consumer c2 = new Consumer(normalDistribution(120, 300), 2);
 		c2.buf = buf;
 		c2.start();
 
@@ -62,6 +62,7 @@ public class Main {
 		double g = r.nextGaussian() * sigma + m;
 		int prodTime = (int) Math.round(g);
 		
+		// absolute value
 		if (prodTime < 0) prodTime = prodTime * -1;
 		
 		return prodTime;
