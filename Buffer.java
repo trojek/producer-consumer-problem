@@ -1,14 +1,13 @@
 public class Buffer {
 
-	int BUF_SIZE = 10;
-	
+	int BUF_SIZE, count = 0;
+	int[] buf;
+
 	public Buffer(int size) {
 		BUF_SIZE = size;
+		buf = new int[size];
 	}
 	
-	int[] buf = new int[BUF_SIZE];
-	int count = 0;
-
 	boolean put(int element)
 	{
 		if (count == BUF_SIZE)
