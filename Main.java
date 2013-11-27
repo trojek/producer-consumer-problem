@@ -26,7 +26,7 @@ public class Main {
 		Buffer buf = new Buffer(Integer.parseInt(args[1]));
 
 		// Create producer which put number into buffer, assign buffer
-		Producer p = new Producer(numbers, normalDistribution(100, 10));
+		Prod p = new Prod(numbers, normalDistribution(100, 10));
 		p.buf = buf;
 		p.start();
 
