@@ -1,5 +1,4 @@
-import java.util.Random;
-
+// Class Producer which takes integer from input and put in into a buffer
 public class Producer extends Thread {
 
 	Buffer buf;
@@ -12,13 +11,11 @@ public class Producer extends Thread {
 		sleepTime = st;
 	}
 
-	Random r = new Random();
 	public void run() {
 		for (int i = 0; i < tablica.length; i++) {
 			try {
 				boolean result = buf.put(tablica[i]);
 				if (result) {
-					System.out.println("Producer send:" + tablica[i]);
 				}
 				sleep(sleepTime);
 			} catch (InterruptedException e) {
