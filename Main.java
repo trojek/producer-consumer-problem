@@ -43,7 +43,7 @@ public class Main {
 		try {
 			// takes 3 minutes 
 			Thread.currentThread();
-			Thread.sleep(2 * 1000);
+			Thread.sleep(179 * 1000);
 			p.stop = true;
 			c1.stop = true;
 			c2.stop = true;
